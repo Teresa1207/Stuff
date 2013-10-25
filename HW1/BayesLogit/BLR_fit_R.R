@@ -13,7 +13,8 @@
 ########################################################################################
 ########################################################################################
 ## Handle batch job arguments:
-
+SBATCH --job-name=Teresa
+SARRAY --range=1-200
 # 1-indexed version is used now.
 args <- commandArgs(TRUE)
 
