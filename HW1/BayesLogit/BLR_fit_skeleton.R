@@ -54,15 +54,15 @@ if (length(args)==0){
 
 library(mvtnorm)
 library(boot)
-library(emdbook)
+#library(emdbook)
 library(MCMCpack)
 library(coda)
 
 #setwd("~/GitHub/Stuff/HW1/BayesLogit/data")
 
 #load data
-data<-read.csv(file=paste("data/blr_data_",sim_num,".csv")
-beta<-read.csv("data/blr_pars_",sim_num,".csv"")
+data<-read.csv(file=paste("data/blr_data_",sim_num,".csv"))
+beta<-read.csv(file=paste("data/blr_pars_",sim_num,".csv"))
 
 #Set Initial Matrices
 
