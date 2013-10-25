@@ -47,10 +47,10 @@ if (length(args)==0){
 ########################################################################################
 ########################################################################################
 
-install.packages("mvtnorm"), use for generating Bivariate Normal rv.
-install.packages("boot"), use for inverse logit function
-install.packages("emdbook"), use for multivariate normal density
-install.packages("MCMCpack"), MCMC package 
+#install.packages("mvtnorm"), use for generating Bivariate Normal rv.
+#install.packages("boot"), use for inverse logit function
+#install.packages("emdbook"), use for multivariate normal density
+#install.packages("MCMCpack"), MCMC package 
 
 library(mvtnorm)
 library(boot)
