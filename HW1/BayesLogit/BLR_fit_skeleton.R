@@ -61,8 +61,8 @@ library(coda)
 #setwd("~/GitHub/Stuff/HW1/BayesLogit/data")
 
 #load data
-data<-read.csv(file=paste("data/blr_data_",sim_num,".csv"))
-beta<-read.csv(file=paste("data/blr_pars_",sim_num,".csv"))
+data<-read.csv(file=paste("data/blr_data_",sim_num,".csv",sep=""))
+beta<-read.csv(file=paste("data/blr_pars_",sim_num,".csv",sep=""))
 
 #Set Initial Matrices
 
@@ -180,13 +180,13 @@ ess <- effectiveSize(beta.samples)
 cat("Effective sample size:\n") ; print(ess)
 
 beta.samples<-mcmc(beta.samples)
-pdf(file=paste("results/Plots",sim_num,".pdf"))
+pdf(file=paste("results/Plots",sim_num,".pdf",sep=""))
 plot(beta.samples)
 dev.off()
 pv <- c(1:99)/100
 beta.q <- apply(beta.samples,2,quantile,probs=pv)
 colnames(beta.q)<-c("B1","B2")
-write.table(beta.q,file = paste("results/beta.q.",sim_num,".csv"))
+write.table(beta.q,file = paste("results/beta.q.",sim_num,".csv",sep=""))
 
 
 
