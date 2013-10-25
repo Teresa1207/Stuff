@@ -61,8 +61,8 @@ library(coda)
 #setwd("~/GitHub/Stuff/HW1/BayesLogit/data")
 
 #load data
-data<-read.csv("blr_data_1098.csv")
-beta<-read.csv("blr_pars_1098.csv")
+data<-read.csv(file=paste("data/blr_data_",sim_num,".csv")
+beta<-read.csv("data/blr_pars_",sim_num,".csv"")
 
 #Set Initial Matrices
 
@@ -142,7 +142,7 @@ n.accept.burn<-0
 beta.current<-matrix(c(b1,b2),1,2)
 log.U<-log(runif(burnin+niter))
 ##Tuning Parameter for Sigma
-v.tune<-1.5
+v.tune<-1.75
 
 #MH
 
@@ -180,16 +180,13 @@ ess <- effectiveSize(beta.samples)
 cat("Effective sample size:\n") ; print(ess)
 
 beta.samples<-mcmc(beta.samples)
+pdf(file=paste("results/Plots",sim_num,".pdf"))
 plot(beta.samples)
-
+dev.off()
 pv <- c(1:99)/100
 beta.q <- apply(beta.samples,2,quantile,probs=pv)
 colnames(beta.q)<-c("B1","B2")
-write.table(beta.q,file = "beta.q.csv")
-
- 
-cat("done. :)\n")
-
+write.table(beta.q,file = paste("results/beta.q.",sim_num,".csv"))
 
 
 
