@@ -8,14 +8,15 @@
 #
 ##
 
+library(mvtnorm)
+library(boot)
+library(MCMCpack)
+library(coda)
 
 
 ########################################################################################
 ########################################################################################
-## Handle batch job arguments:
-#SBATCH --job-name=Teresa
-#SARRAY --range=1-200
-# 1-indexed version is used now.
+
 args <- commandArgs(TRUE)
 
 cat(paste0("Command-line arguments:\n"))
