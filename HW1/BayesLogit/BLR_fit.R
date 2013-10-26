@@ -1,22 +1,22 @@
-
 ##
 #
 # Logistic regression
-# 
+#
 # Y_{i} | \beta \sim \textrm{Bin}\left(n_{i},e^{x_{i}^{T}\beta}/(1+e^{x_{i}^{T}\beta})\right)
 # \beta \sim N\left(\beta_{0},\Sigma_{0}\right)
 #
 ##
 
 library(mvtnorm)
+library(coda)
 library(boot)
 library(MCMCpack)
-library(coda)
-
 
 ########################################################################################
 ########################################################################################
+## Handle batch job arguments:
 
+# 1-indexed version is used now.
 args <- commandArgs(TRUE)
 
 cat(paste0("Command-line arguments:\n"))
@@ -53,13 +53,6 @@ if (length(args)==0){
 #install.packages("boot"), use for inverse logit function
 #install.packages("emdbook"), use for multivariate normal density
 #install.packages("MCMCpack"), MCMC package 
-
-library(mvtnorm)
-library(boot)
-#library(emdbook)
-library(MCMCpack)
-library(coda)
-
 #setwd("~/GitHub/Stuff/HW1/BayesLogit/data")
 
 #load data
