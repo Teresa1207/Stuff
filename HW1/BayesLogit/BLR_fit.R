@@ -181,7 +181,7 @@ beta.samples<-mcmc(beta.samples)
 pv <- c(1:99)/100
 beta.q <- apply(beta.samples,2,quantile,probs=pv)
 #colnames(beta.q)<-c("B1","B2")
-write.table(beta.q,file = paste("results/blr_res_",sim_num,".csv",sep=""),col.names=F,row.names=F)
+write.table(beta.q,file = paste("results/blr_res_",sim_num,".csv",sep=""))
 
 
 
