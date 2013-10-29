@@ -113,9 +113,9 @@ V<-diag(vi)
 
 #sigma values:
 
-#sigma<-MSE*solve(t(X)%*%X)
-sigma<-solve(t(X)%*%V%*%X)
-#sigma<-matrix(c(.5,.5,.5,.5),2,2)
+#sigma<-MSE*solve(t(X)%*%X) #cov matrix under linear regression
+sigma<-solve(t(X)%*%V%*%X) #cov matrix under logistic regression, I USE THIS ON
+#sigma<-matrix(c(.5,.5,.5,.5),2,2) #random cov. matrix
 
 
 
