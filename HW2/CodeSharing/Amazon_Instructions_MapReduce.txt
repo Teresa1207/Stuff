@@ -1,0 +1,38 @@
+##put all *.py files and *.sh files that you are going to use, into your hadoop directory
+##Windows users can do this via WiNSCP! (hadoop@awsec2..., UserId: ec2-user, no password, import key!)
+
+##create folders in hadoop fs and load data
+
+hadoop fs -mkdir data
+hadoop distcp s3://sta250bucket/bsamples data/
+
+#make sure your file is executable
+
+$chmod 755 hadoop_hw.sh
+
+#run the script
+
+$ ./hadoop_hw.sh
+
+##possible errors result from window--unix, need to format your file
+
+$vim hadoop_hw.sh
+:set fileformat=unix
+:wq
+
+#now try rerunning script
+
+#copy output from the fs to your local directory
+
+hadoop fs -copyToLocal binned-output ./
+
+#look at files in your binned-output
+
+cd binned-ouput
+
+#now concatenate them all together (depending on which files are in there)
+
+cat part-00000 part-00001 part-00002 ...  > catfile
+
+#now you have your total file that you can take off using Winscp!
+
